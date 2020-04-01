@@ -7,6 +7,9 @@ into the {body} of the default.hbs template --}}
     <div class="outer site-nav-main">
         <div class="inner">
             {{> "site-nav"}}
+            {{{block "search-field"}}}
+
+            {{{block "search-results"}}}
         </div>
     </div>
 </header>

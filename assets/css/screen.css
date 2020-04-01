@@ -486,6 +486,10 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     color: #fff;
 }
 
+.m-icon-button {
+    margin-right: 20px;
+}
+
 .button.small.signout-link {
     color: #fff;
     box-shadow: #fff 0 0 0 1px inset;

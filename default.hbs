@@ -12,7 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{!-- Styles'n'Scripts --}}
+    <script src="https://kit.fontawesome.com/507e3631af.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+
+    <style>
+        .current {
+            z-index: 999;
+        }
+    </style>
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
@@ -47,9 +55,29 @@
 
     </div>
 
+    <div id="search-modal" class="modal">
+        <div class="m-search__content">
+            <form class="m-search__form" _lpchecked="1">
+                <fieldset>
+                    <span class="icon-search m-search-icon"></span>
+                    <input type="text" id="searchBox" class="m-input in-search js-input-search" placeholder="Type to search" aria-label="Type to search">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
    {{> "notifications"}}
 
-
+    <script type="text/javascript">
+        /* Create a configuration object */
+        var ss360Config = {
+            /* Your site id */
+            siteId: "https://blog.michaelbrooks.dev",
+            /* A CSS selector that points to your search box */
+            searchBox: {selector: '#searchBox'}
+        };
+    </script>
+    <script src="https://cdn.sitesearch360.com/v13/sitesearch360-v13.min.js" async></script>
 
     <script>
         var images = document.querySelectorAll('.kg-gallery-image img');
@@ -143,12 +171,17 @@
             });
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
     {{{block "scripts"}}}
 
     {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
     {{ghost_foot}}
-
+    <!-- Modal HTML embedded directly into document -->
+    <div id="ex1" class="modal" style="z-index: 9999">
+        <p>Thanks for clicking. That felt good.</p>
+        <a href="#" rel="modal:close">Close</a>
+    </div>
 </body>
 </html>

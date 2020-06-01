@@ -251,6 +251,13 @@ body {
     .site-header-content {
         padding-bottom: 9vw;
     }
+    .toc-container {
+        display: none;
+    }
+
+    .post-full-content {
+        display: block !important;
+    }
 }
 
 @media (max-width: 500px) {
@@ -275,10 +282,6 @@ body {
 
     .site-archive-header .no-image .site-header-content {
         padding: 12vw 0 20px;
-    }
-
-    .toc-container {
-        display: none;
     }
 }
 
